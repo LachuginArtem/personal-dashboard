@@ -241,20 +241,23 @@ const Form = () => {
       {/* Модальное окно */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 shadow-lg rounded-lg w-96">
-            <button className="absolute top-0 right-0 p-2" onClick={closeModal}>
-              &times;
-            </button>
+        <div className="bg-white p-6 shadow-lg rounded-lg w-96 grid gap-4">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center">
+            <span></span>
             <h3 className="text-xl font-semibold">Результаты</h3>
-            <div className="mt-4">
-              <ul className="space-y-2">
-                {recommendations.map((item, index) => (
-                  <li key={index}>{item.replace('Направление подготовки_', '')}</li>
-                ))}
-              </ul>
-            </div>
+            <button className="p-2" onClick={closeModal}>
+            ✕
+            </button>
+          </div>
+          <div className="mt-4">
+            <ul className="space-y-2">
+              {recommendations.map((item, index) => (
+                <li key={index}>{item.replace('Направление подготовки_', '')}</li>
+              ))}
+            </ul>
           </div>
         </div>
+      </div>
       )}
     </div>
   );
